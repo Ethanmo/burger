@@ -17,9 +17,9 @@ var orm = {
         })
     },
 
-    updateOne : function(tableName, burgerName, updateDevoured, cb){
-        var queryStr = "UPDATE ? WHERE burger_name = ? SET devoured = ?";
-        connection.query(queryStr, [tableName, burgerName, updateDevoured], function(err, result){
+    updateOne : function(tableName, id, updateDevoured, cb){
+        var queryStr = "UPDATE ? WHERE id = ? SET devoured = ?";
+        connection.query(queryStr, [tableName, id, updateDevoured], function(err, result){
             if (err) throw err;
             console.table(result);
         })
