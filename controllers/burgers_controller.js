@@ -1,4 +1,4 @@
-var express = require('express');
+var express = require("express");
 
 var router = express.Router();
 
@@ -6,14 +6,16 @@ var burger = require("../models/burger");
 
 router.get("/", function(req, res){
     burger.getAll(function(result){
-        console.log({burgers: result});
+        //console.log("current db", {burgers: result});
         res.render("index", {burgers: result});
     });
 });
 
 router.post("/api/burgers", function(req, res){
+    //console.log(req.body);
     burger.create(req.body.burger_name, function(result){
-        res.json({ id: result.insertId });
+        //console.log("added burger", { id: result.insertId });
+        res.json({id: result.insertId});
     });
 });
 
